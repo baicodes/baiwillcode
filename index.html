@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Using google MAPS api</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js">
+	</script>
+	<script src="https://maps.googleapsis.com/maps/api/js?key=AIzaSyDCfHT-GTnXblhvOM0PQI5n5XIlUndCjlQ"></script>
+</head>
+
+<body>
+	<h1> Using a pyblic data set, we are creating a map with markers</h1>
+	<div id="map"></div>
+</body>
+<script type="text/javascript">
+	$(window).load(function(){
+		url = "https://data.cityofnewyork.us/resource/9w7m-hzhe.json";
+		var center = new googl.maps.Latlng(40.7128, 74.0060);
+		var mapOPtions = {
+			zoom: 8,
+			center:center
+		}
+		var map = new gogle.maps.Map(document.getElementById("map"), mapOptions);
+	})
+	</script>
+
+
+</html>
