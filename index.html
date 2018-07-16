@@ -11,7 +11,7 @@
 </head>
 
 <body>
-	<h1>using a public data set, we are creating a map with markers</h1>
+	<h1>Using a public data set, we are creating a map with markers</h1>
 		<div id="map"></div>
 </body>
 <script type="text/javascript">
@@ -23,8 +23,24 @@
 		  zoom: 8,
 		  center: center
 	}
-	var map = new google.maps.Map(document.getElementById("map"), mapOptions) ; 
-})
+	var map = new google.maps.Map(document.getElementById("map"), mapOptions) ;
+	var geoCoder = new google.maps.Geocoder();
+
+	$.getJSON(URL, function(data, textstatus){
+		$.each(data, function(i, entry){
+			var address = entry.building+" "+entry.street+" "+entry.boro+" "+entry.zipcode;
+			geoCoder.geocode({"address":address}, function(result, status))
+			if(status=== "OK") {
+				var marker = new google.maps.Marker({
+					position: result[0].geometry.location
+					map: map,
+					title: entry.dba
+				});
+			}
+
+         });
+	}); 
+});
 	
 
 </script>
