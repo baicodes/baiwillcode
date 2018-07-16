@@ -32,7 +32,7 @@
 			geoCoder.geocode({"address":address}, function(result, status){
 			if(status=== "OK") {
 				var marker = new google.maps.Marker({
-					position: result[0].geometry.location
+					position: result[0].geometry.location,
 					map: map,
 					title: entry.dba
 				});
