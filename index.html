@@ -29,7 +29,7 @@
 	$.getJSON(URL, function(data, textstatus){
 		$.each(data, function(i, entry){
 			var address = entry.building+" "+entry.street+" "+entry.boro+" "+entry.zipcode;
-			geoCoder.geocode({"address":address}, function(result, status))
+			geoCoder.geocode({"address":address}, function(result, status){
 			if(status=== "OK") {
 				var marker = new google.maps.Marker({
 					position: result[0].geometry.location
@@ -37,7 +37,7 @@
 					title: entry.dba
 				});
 			}
-
+});
          });
 	}); 
 });
